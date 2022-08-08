@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="etck-a-sketch.css">
     </head>
     <body>
+        <button></button><br><br>
         <div id="container">
 
         </div>
@@ -15,29 +16,40 @@
             let rows = document.getElementsByClassName("gridRow");
             let cells = document.getElementsByClassName("column");
 
-            function makeGrid () {
-                makeRows (16);
-                makeColumns (16);
-            };
-
+            function makeGrid () {                
+                makeRows ();
+                makeColumns ();
+            }
+                
             function makeRows (rowNum) {
-                for (r = 0; r < rowNum; r++) {
-                    let row = document.createElement("div");
-                    container.appendChild(row).className = "gridRow";
+                rowNum = prompt("How many rows do you want to make?", "Enter a number between 1 and 100");
+                if (rowNum <= 100) {
+                    for (r = 0; r < rowNum ; r++) {                 
+                        let row = document.createElement("div");
+                        container.appendChild(row).className = "gridRow";
+                    } 
+                } else {
+                    alert ("You're to enter a number between 1 and 100");
                 }
             };
-
-            function makeColumns (colNum) {
-                for (c = 0; c < rows.length; c++) {
-                    for (i = 0; i < colNum; i++) {
-                        let col = document.createElement("div");
-                        rows[i].appendChild(col).className = "column";
-                    }
-                }
-            };
-
-            makeGrid();
             
+            function makeColumns (colNum) {
+                colNum = prompt("How many columns do you want to make?", "Enter a number between 1 and 100");
+                if (colNum <= 100) {
+                    for (c = 0; c < rows.length; c++) {
+                        for (i = 0; i < colNum; i++) {                       
+                            let col = document.createElement("div");
+                            rows[i].appendChild(col).className = "column";
+                        }                                         
+                    }
+                } else {
+                    alert ("You're to enter a number between 1 and 100");
+                }   
+            };
+
+            let btn = document.querySelector("button");
+            btn.textContent = "Click Me!";
+            btn.addEventListener("click", makeGrid);           
         </script>
     </body>
 </html>
