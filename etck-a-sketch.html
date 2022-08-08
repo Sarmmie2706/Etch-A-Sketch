@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Etch-A-Sketch</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="etck-a-sketch.css">
+    </head>
+    <body>
+        <div id="container">
+
+        </div>
+
+        <script>
+            let container = document.getElementById("container");
+            let rows = document.getElementsByClassName("gridRow");
+            let cells = document.getElementsByClassName("column");
+
+            function makeGrid () {
+                makeRows (16);
+                makeColumns (16);
+            };
+
+            function makeRows (rowNum) {
+                for (r = 0; r < rowNum; r++) {
+                    let row = document.createElement("div");
+                    container.appendChild(row).className = "gridRow";
+                }
+            };
+
+            function makeColumns (colNum) {
+                for (c = 0; c < rows.length; c++) {
+                    for (i = 0; i < colNum; i++) {
+                        let col = document.createElement("div");
+                        rows[i].appendChild(col).className = "column";
+                    }
+                }
+            };
+
+            makeGrid();
+            
+        </script>
+    </body>
+</html>
